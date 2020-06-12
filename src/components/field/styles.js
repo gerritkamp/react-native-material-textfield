@@ -1,4 +1,4 @@
-import { StyleSheet, I18nManager } from 'react-native';
+import { StyleSheet, I18nManager, Platform } from 'react-native';
 
 export default StyleSheet.create({
   inputContainer: {
@@ -18,6 +18,11 @@ export default StyleSheet.create({
       'left',
 
     includeFontPadding: false,
+    ...Platform.select({
+      android: {
+        includeFontPadding: false,
+      },
+    }),
     textAlignVertical: 'top',
   },
 
